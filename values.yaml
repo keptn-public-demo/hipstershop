@@ -1,1 +1,2 @@
-{}
+redis-cart:
+  enabled: false
