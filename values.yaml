@@ -2,6 +2,8 @@ adservice:
   enabled: false
 adservice-generated:
   enabled: false
+cartservice:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
