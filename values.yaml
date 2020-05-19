@@ -1,5 +1,7 @@
 adservice:
   enabled: false
+adservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
