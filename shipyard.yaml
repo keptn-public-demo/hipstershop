@@ -1,0 +1,6 @@
+stages:
+  - name: "hardening"
+    test_strategy: "functional"
+    deployment_strategy: "blue_green_service"
+  - name: "prod"
+    deployment_strategy: "blue_green_service"
