@@ -4,6 +4,8 @@ adservice-generated:
   enabled: false
 cartservice:
   enabled: false
+cartservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
