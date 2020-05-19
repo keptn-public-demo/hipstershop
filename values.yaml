@@ -1,2 +1,4 @@
 redis-cart:
   enabled: false
+redis-cart-generated:
+  enabled: false
