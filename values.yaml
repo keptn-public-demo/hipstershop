@@ -18,6 +18,8 @@ emailservice:
   enabled: false
 emailservice-generated:
   enabled: false
+frontend:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
