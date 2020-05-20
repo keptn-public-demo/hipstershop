@@ -26,6 +26,8 @@ paymentservice:
   enabled: false
 paymentservice-generated:
   enabled: false
+productcatalogservice:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
