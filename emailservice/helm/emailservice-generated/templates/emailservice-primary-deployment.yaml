@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: emailservice-primary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emailservice-primary
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: emailservice-primary
+    spec:
+      containers:
+      - env:
+        - name: PORT
+          value: "8080"
+        - name: DT_CUSTOM_PROP
+          value: keptn_project=hipstershop keptn_service=emailservice keptn_stage=prod
+            keptn_deployment=primary
+        - name: ENABLE_PROFILER
+          value: "0"
+        image: gcr.io/dynatrace-demoability/awsemailservice:45c069f
+        livenessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:8080
+          periodSeconds: 5
+        name: server
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:8080
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+      imagePullSecrets:
+      - name: regcred
+      terminationGracePeriodSeconds: 5
+status: {}
