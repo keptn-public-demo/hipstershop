@@ -16,6 +16,8 @@ currencyservice-generated:
   enabled: false
 emailservice:
   enabled: false
+emailservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
