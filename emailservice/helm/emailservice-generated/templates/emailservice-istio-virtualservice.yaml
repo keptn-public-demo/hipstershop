@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: emailservice-canary.hipstershop-hardening.svc.cluster.local
+      weight: 100
     - destination:
         host: emailservice-primary.hipstershop-hardening.svc.cluster.local
-      weight: 100
