@@ -1,0 +1,7 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  creationTimestamp: null
+  name: adservice-primary
+spec:
+  host: adservice-primary.hipstershop-prod.svc.cluster.local
