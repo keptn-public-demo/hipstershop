@@ -12,6 +12,8 @@ checkoutservice-generated:
   enabled: false
 currencyservice:
   enabled: false
+currencyservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
