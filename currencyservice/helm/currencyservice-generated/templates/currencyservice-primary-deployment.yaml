@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: currencyservice-primary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currencyservice-primary
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: currencyservice-primary
+    spec:
+      containers:
+      - env:
+        - name: PORT
+          value: "7000"
+        - name: DT_CUSTOM_PROP
+          value: keptn_project=hipstershop keptn_service=currencyservice keptn_stage=prod
+            keptn_deployment=primary
+        image: gcr.io/dynatrace-demoability/awscurrencyservice:45c069f
+        livenessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:7000
+        name: server
+        ports:
+        - containerPort: 7000
+          name: grpc
+        readinessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:7000
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+      imagePullSecrets:
+      - name: regcred
+      terminationGracePeriodSeconds: 5
+status: {}

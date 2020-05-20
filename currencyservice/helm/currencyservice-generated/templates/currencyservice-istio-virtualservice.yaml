@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: null
+  name: currencyservice
+spec:
+  gateways:
+  - public-gateway.istio-system
+  - mesh
+  hosts:
+  - currencyservice.hipstershop-prod.public.demo.keptn.sh
+  - currencyservice
+  http:
+  - route:
+    - destination:
+        host: currencyservice-canary.hipstershop-prod.svc.cluster.local
+    - destination:
+        host: currencyservice-primary.hipstershop-prod.svc.cluster.local
+      weight: 100

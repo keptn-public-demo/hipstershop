@@ -1,0 +1,7 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  creationTimestamp: null
+  name: currencyservice-canary
+spec:
+  host: currencyservice-canary.hipstershop-prod.svc.cluster.local
