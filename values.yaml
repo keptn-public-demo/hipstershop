@@ -38,3 +38,5 @@ redis-cart:
   enabled: false
 redis-cart-generated:
   enabled: false
+shippingservice:
+  enabled: false
