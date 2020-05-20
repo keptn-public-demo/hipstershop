@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: paymentservice-canary.hipstershop-hardening.svc.cluster.local
-      weight: 100
     - destination:
         host: paymentservice-primary.hipstershop-hardening.svc.cluster.local
+      weight: 100
