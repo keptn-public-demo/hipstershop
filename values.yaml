@@ -8,6 +8,8 @@ cartservice-generated:
   enabled: false
 checkoutservice:
   enabled: false
+checkoutservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
