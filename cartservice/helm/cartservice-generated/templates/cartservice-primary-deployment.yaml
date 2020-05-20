@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: cartservice-primary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cartservice-primary
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cartservice-primary
+    spec:
+      containers:
+      - env:
+        - name: REDIS_ADDR
+          value: redis-cart:6379
+        - name: PORT
+          value: "7070"
+        - name: LISTEN_ADDR
+          value: 0.0.0.0
+        - name: DT_CUSTOM_PROP
+          value: keptn_project=hipstershop keptn_service=cartservice keptn_stage=hardening
+            keptn_deployment=primary
+        image: jetzlstorfer/hipstershop-cartservice:0.1
+        livenessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:7070
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        name: server
+        ports:
+        - containerPort: 7070
+        readinessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:7070
+          initialDelaySeconds: 15
+        resources:
+          limits:
+            cpu: 800m
+            memory: 512Mi
+          requests:
+            cpu: 600m
+            memory: 256Mi
+      imagePullSecrets:
+      - name: regcred
+      terminationGracePeriodSeconds: 5
+status: {}
