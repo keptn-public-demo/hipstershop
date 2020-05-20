@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: null
+  name: productcatalogservice
+spec:
+  gateways:
+  - public-gateway.istio-system
+  - mesh
+  hosts:
+  - productcatalogservice.hipstershop-prod.public.demo.keptn.sh
+  - productcatalogservice
+  http:
+  - route:
+    - destination:
+        host: productcatalogservice-canary.hipstershop-prod.svc.cluster.local
+    - destination:
+        host: productcatalogservice-primary.hipstershop-prod.svc.cluster.local
+      weight: 100

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: productcatalogservice-primary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productcatalogservice-primary
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: productcatalogservice-primary
+    spec:
+      containers:
+      - env:
+        - name: PORT
+          value: "3550"
+        - name: DT_CUSTOM_PROP
+          value: keptn_project=hipstershop keptn_service=productcatalogservice keptn_stage=prod
+            keptn_deployment=primary
+        image: gcr.io/dynatrace-demoability/awsproductcatalogservice:45c069f
+        livenessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:3550
+        name: server
+        ports:
+        - containerPort: 3550
+        readinessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:3550
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+      imagePullSecrets:
+      - name: regcred
+      terminationGracePeriodSeconds: 5
+status: {}
