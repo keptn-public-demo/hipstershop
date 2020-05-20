@@ -22,6 +22,8 @@ frontend:
   enabled: false
 frontend-generated:
   enabled: false
+paymentservice:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
