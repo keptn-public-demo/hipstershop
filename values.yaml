@@ -28,6 +28,8 @@ paymentservice-generated:
   enabled: false
 productcatalogservice:
   enabled: false
+productcatalogservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
