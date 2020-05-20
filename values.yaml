@@ -32,6 +32,8 @@ productcatalogservice-generated:
   enabled: false
 recommendationservice:
   enabled: false
+recommendationservice-generated:
+  enabled: false
 redis-cart:
   enabled: false
 redis-cart-generated:
