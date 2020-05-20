@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: checkoutservice-canary.hipstershop-prod.svc.cluster.local
-      weight: 100
     - destination:
         host: checkoutservice-primary.hipstershop-prod.svc.cluster.local
+      weight: 100
