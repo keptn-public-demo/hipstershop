@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: productcatalogservice-canary
+spec:
+  ports:
+  - name: grpc
+    port: 3550
+    targetPort: 3550
+  selector:
+    app: productcatalogservice
+  type: ClusterIP
+status:
+  loadBalancer: {}
