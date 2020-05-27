@@ -10,6 +10,6 @@ spec:
     targetPort: 8080
   selector:
     app: frontend-primary
-  type: LoadBalancer
+  type: ClusterIP
 status:
   loadBalancer: {}
