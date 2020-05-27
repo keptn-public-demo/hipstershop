@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: frontend-canary.hipstershop-prod.svc.cluster.local
+      weight: 100
     - destination:
         host: frontend-primary.hipstershop-prod.svc.cluster.local
-      weight: 100
