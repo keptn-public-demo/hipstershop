@@ -1,2 +1,0 @@
-image: gcr.io/dynatrace-demoability/awscheckoutservice:45c069f
-replicaCount: 1
