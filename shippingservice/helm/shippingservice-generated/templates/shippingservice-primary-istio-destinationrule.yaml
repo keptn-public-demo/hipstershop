@@ -1,7 +1,0 @@
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  creationTimestamp: null
-  name: shippingservice-primary
-spec:
-  host: shippingservice-primary.hipstershop-prod.svc.cluster.local
