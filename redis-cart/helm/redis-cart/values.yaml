@@ -1,2 +1,0 @@
-image: redis:alpine
-replicaCount: 1
